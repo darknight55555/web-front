@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Меню</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="c:\Users\User\Desktop\web-front\favicon.ico" type="image/x-icon">
+        <link rel="icon" href="c:\Users\User\Desktop\web-front\favicon-16x16.png">
+        <link rel="icon" href="C:\Users\User\Desktop\web-front\favicon-32x32.png">
+        <style>
+            .container {
+            position: relative;
+            width: 800px;
+            margin: 50px auto;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .bubble {
+            position: absolute;
+            background: #fff;
+            border: 3px solid #333;
+            border-radius: 50px;
+            padding: 20px;
+            opacity: 0;
+            transition: all 0.5s ease;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            width: 200px;
+            transform: translateY(20px);
+        }
+
+        .container:hover .bubble {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Позиции облачков */
+        .bubble-1 {
+            left: 450px;
+            top: 200px;
+            transition-delay: 0.1s;
+        }
+
+        .bubble-2 {
+            left: 550px;
+            top: 280px;
+            transition-delay: 0.3s;
+        }
+
+        .bubble-3 {
+            left: 650px;
+            top: 360px;
+            transition-delay: 0.5s;
+        }
+
+        .bubble-4 {
+            left: 750px;
+            top: 440px;
+            transition-delay: 0.7s;
+        }
+           
+            </style>
+    </head>
+
+    <body style="background-color: rgb(4, 4, 51);">
+            <header>
+
+            </header>
+            <main >
+                <div class="container">
+                    <img src="https://steamuserimages-a.akamaihd.net/ugc/2486640523242787610/3F8EC3792A680EF1E8B1104A74620A3904F5BE19/?imw=512&&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" alt="Герой комикса" class="hero-image">
+                    
+                    <div class="bubble bubble-1">
+                        ...
+                    </div>
+                    
+                    <div class="bubble bubble-2">
+                        ...
+                    </div>
+                    
+                    <div class="bubble bubble-3">
+                        ...
+                    </div>
+                    
+                    <div class="bubble bubble-4">
+                        "Vengeance won’t change the past, mine or anyone else’s. I have to become more. People need hope. To know someone’s out there for them."
+                    </div>
+                </div>
+            </main>
+            <footer>
+                
+                &copy; Dark knight
+            </footer>
+    </body>
+</html>

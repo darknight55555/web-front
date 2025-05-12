@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин элитного чая</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            text-transform: uppercase;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid #e67e22;
+        }
+
+        .product-content {
+            padding: 20px;
+        }
+
+        .product-title {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .product-description {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Элитные сорта чая</h1>
+        
+        <div class="products-grid">
+            <!-- Карточка 1 -->
+            <div class="product-card">
+                <img src="https://th.bing.com/th/id/OIP.KQevhpt_O42Nc_hQV-bgJgHaE8?rs=1&pid=ImgDetMain" alt="Белый пион" class="product-image">
+                <div class="product-content">
+                    <h2 class="product-title">Белый пион</h2>
+                    <p class="product-description">Нежный китайский белый чай с цветочными нотами и медовым послевкусием. Сбор первого урожая.</p>
+                </div>
+            </div>
+
+            <!-- Карточка 2 -->
+            <div class="product-card">
+                <img src="https://ir.ozone.ru/s3/multimedia-b/c1000/6820124051.jpg" alt="Улун Да Хун Пао" class="product-image">
+                <div class="product-content">
+                    <h2 class="product-title">Улун Да Хун Пао</h2>
+                    <p class="product-description">Легендарный темный улун с минеральными нотками и долгим персиковым финишем.</p>
+                </div>
+            </div>
+
+            <!-- Карточка 3 -->
+            <div class="product-card">
+                <img src="https://th.bing.com/th/id/OIP.E7_aATsModEoNwzCvqWX3wHaHa?rs=1&pid=ImgDetMain" alt="Молочный улун" class="product-image">
+                <div class="product-content">
+                    <h2 class="product-title">Молочный улун</h2>
+                    <p class="product-description">Тайваньский улун с кремовой текстурой и нотками карамелизированного молока.</p>
+                </div>
+            </div>
+
+            <!-- Карточка 4 -->
+            <div class="product-card">
+                <img src="https://th.bing.com/th/id/OIP.XVx5LDaD8ZYIlCfg-5wPAQHaKq?rs=1&pid=ImgDetMain" alt="Дарджилинг" class="product-image">
+                <div class="product-content">
+                    <h2 class="product-title">Дарджилинг</h2>
+                    <p class="product-description">Индийский черный чай с мускатным ароматом и медово-фруктовым вкусом.</p>
+                </div>
+            </div>
+
+            <!-- Карточка 5 -->
+            <div class="product-card">
+                <img src="https://th.bing.com/th/id/OIP.5Aetz1Ml19pDUCsnWMlUZgHaJa?rs=1&pid=ImgDetMain" alt="Сенча Асагури" class="product-image">
+                <div class="product-content">
+                    <h2 class="product-title">Сенча Асагури</h2>
+                    <p class="product-description">Японская сенча с травянистыми нотами и освежающим морским послевкусием.</p>
+                </div>
+            </div>
+
+            <!-- Карточка 6 -->
+            <div class="product-card">
+                <img src="https://cdn1.ozone.ru/s3/multimedia-g/6041741584.jpg" alt="Лапсанг Сушонг" class="product-image">
+                <div class="product-content">
+                    <h2 class="product-title">Лапсанг Сушонг</h2>
+                    <p class="product-description">Копченый чай с ароматом дыма и древесными нотками. Идеален к мясу.</p>
+                </div>
+            </div>
+
+            <!-- Карточка 7 -->
+            <div class="product-card">
+                <img src="https://ir.ozone.ru/s3/multimedia-r/c1000/6748399863.jpg" alt="Габа Алишань" class="product-image">
+                <div class="product-content">
+                    <h2 class="product-title">Габа Алишань</h2>
+                    <p class="product-description">Уникальный тайваньский чай с высоким содержанием ГАМК для релаксации.</p>
+                </div>
+            </div>
+
+            <!-- Карточка 8 -->
+            <div class="product-card">
+                <img src="https://www.coffeemag.ru/photo/photo29911.jpeg" alt="Ройбуш Ваниль" class="product-image">
+                <div class="product-content">
+                    <h2 class="product-title">Ройбуш Ваниль</h2>
+                    <p class="product-description">Южноафриканский ройбуш с натуральной ванилью и лепестками василька.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
