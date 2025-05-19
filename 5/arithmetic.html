@@ -53,6 +53,13 @@
                 let result = a / b;
                 alert("деление " +a+ " и " +b+ " равна " +result);
             }
+            function changeOutput(buttonNum, backColor, textColor, changeBorder){
+                let output = document.getElementById('output');
+                output.innerHTML = 'нажата кнопка ' +buttonNum;
+                output.style.backgroundColor=backColor;
+                output.style.color=textColor;
+                output.style.border=changeBorder;
+            }
 
         </script>
         <style>
@@ -63,6 +70,11 @@
             border: 3px solid #05621d;
             display: inline-block;
             cursor: pointer;
+        }
+        #output{
+            border: 1px solid;
+            width: 600px;
+            height: 80px;
         }
         </style>
     </head>
@@ -79,6 +91,14 @@
                 <div class="message" onclick="showRez()">Найти разность чисел</div>
                 <div class="message" onclick="showUmn()">Найти умножение чисел</div>
                 <div class="message" onclick="showDel()">Найти деление чисел</div>
+
+                <div>
+                    <input type="button" value="Кнопка 1" onclick="changeOutput(1, 'red', 'yellow', 'double')">
+                    <input type="button" value="Кнопка 2" onclick="changeOutput(2, 'black', 'lime', 'groove')">
+                    <input type="button" value="Кнопка 3" onclick="changeOutput(3, 'blue', 'white', 'inset')">
+                    <input type="button" value="Кнопка 4" onclick="changeOutput(4, 'brown', 'pink', 'outset')">
+                </div>
+                <div id="output"></div>
             </main>
             <footer style="cursor: pointer;" ondblclick="showWussup()">
                 
