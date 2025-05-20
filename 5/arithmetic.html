@@ -10,13 +10,17 @@
         <link rel="icon" href="C:\Users\User\Desktop\web-front\favicon-32x32.png">
         <script>
             function showSum(){
-                let inputA = document.getElementById('numberA');
-                let inputB = document.getElementById('numberB');
+                let inputA = document.getElementById('banana');
+                let inputB = document.getElementById('apple');
+                let inputC = document.getElementById('orange');
+                let inputD = document.getElementById('kiwi');
 
                 let a = parseInt(inputA.value);
                 let b = parseInt(inputB.value);
-                let result = a + b;
-                alert("сумма " +a+ " и " +b+ " равна " +result);
+                let c = parseInt(inputC.value);
+                let d = parseInt(inputD.value);
+                let result = a + b + c + d;
+                //alert("сумма " +a+ " и " +b+ " равна " +result);
             }
             function showAuthor(){
                 let author = 'Автор страницы:\nМаксим';
@@ -85,7 +89,7 @@
             </header>
             <main>
                 <label>Первое число:<input type="number" value="5154" id="numberA"></label><br>
-                <label>Второе число:<input type="number" value="7891" id="numberB"></label><br>
+                <label>Второе число:<br><input type="number" value="7891" id="numberB"></label><br>
                 <div class="message" onclick="showSum()">Найти сумму чисел</div>
                 <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
                 <div class="message" onclick="showRez()">Найти разность чисел</div>

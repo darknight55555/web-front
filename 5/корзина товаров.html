@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>корзина</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="c:\Users\User\Desktop\web-front\favicon.ico" type="image/x-icon">
+        <link rel="icon" href="c:\Users\User\Desktop\web-front\favicon-16x16.png">
+        <link rel="icon" href="C:\Users\User\Desktop\web-front\favicon-32x32.png">
+        <link rel="stylesheet" href="../arithmetic.html">
+        <script>
+             function calculateTotal(){
+                let inputA = document.getElementById('banana');
+                let inputB = document.getElementById('apple');
+                let inputC = document.getElementById('orange');
+                let inputD = document.getElementById('kiwi');
+
+                let bananaCount = parseInt(inputA.value) ||0;
+                let appleCount = parseInt(inputB.value) ||0;
+                let orangeCount = parseInt(inputC.value) ||0;
+                let kiwiCount = parseInt(inputD.value) ||0;
+
+                const prices={
+                    banana:40,
+                    apple:30 ,
+                    orange:45 ,
+                    kiwi: 50
+                }
+                const total = 
+                bananaCount * prices.banana +
+                appleCount * prices.apple +
+                orangeCount * prices.orange +
+                kiwiCount * prices.kiwi;
+                
+                document.getElementById('output').textContent=
+                 `Общая сумма: ${total} руб`;
+            }
+            
+             function clearCart() {
+            // Очищаем все поля ввода
+            document.getElementById('banana').value = '';
+            document.getElementById('apple').value = '';
+            document.getElementById('orange').value = '';
+            document.getElementById('kiwi').value = '';
+            
+            // Очищаем результат
+            document.getElementById('output').textContent = '';
+        }
+        </script>
+        <style>
+            .message {
+            width: 300px;
+            height: 100px;
+            display: block;
+            margin: 10px 0;
+            }
+            #output{
+               font-size: 20px;
+            margin: 20px 0;
+            color: green;
+            font-weight: bold;
+            }
+        </style>
+    </head>
+
+    <body>
+            <header >
+                <b>КОРЗИНА ТОВАРОВ</b>
+            </header>
+            <main>
+                <label class="message">
+                Бананы(40руб/шт):<br>
+                <input type="number" min="0" id="banana" placeholder="Напишите количество бананов">
+                </label><br>
+                <label class="message">Яблоки(30руб/шт):<br><input type="number" min="0" id="apple" placeholder="Напишите количество яблок"></label><br>
+                <label class="message">Апельсины(45руб/шт):<br><input type="number" min="0" id="orange" placeholder="Напишите количество апельсинов"></label><br>
+                <label class="message">Киви(50руб/шт):<br><input type="number" min="0" id="kiwi" placeholder="Напишите количество киви"></label><br>
+                <div>
+                     <button onclick="calculateTotal()">Рассчитать сумму</button>
+                    <div id="output"></div>
+                
+                <button id="clear" onclick="clearCart()">Очистить корзину</button>
+            </main>
+            <footer>
+                
+                &copy; Dark knight
+            </footer>
+    </body>
+</html>
