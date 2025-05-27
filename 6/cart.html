@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина товаров</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .balance {
+            margin-bottom: 20px;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 5px;
+        }
+        .product {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .error {
+            background: #ffebee;
+            color: #b71c1c;
+        }
+        .success {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+    </style>
+     <script>
+        function calculate() {
+            const balance = parseInt(document.getElementById('balance').value);
+            const inputs = document.querySelectorAll('#basket input');
+            let total = 0;
+            let error = '';
+            let allEmpty = true;
+
+            inputs.forEach(input => {
+                const value = input.value.trim();
+                
+                // Проверка на пустое поле
+                if (value === '') return;
+                
+                const quantity = parseInt(value);
+                
+                // Проверка на отрицательное значение
+                if (quantity < 0) {
+                    error = 'Ошибка: Количество не может быть отрицательным!';
+                    return;
+                }
+                
+                allEmpty = false;
+                total += quantity * parseInt(input.dataset.price);
+            });
+
+            // Проверка на все пустые поля
+            if (allEmpty) {
+                error = 'Ошибка: Выберите хотя бы один товар!';
+            }
+
+            // Формирование результата
+            const result = document.getElementById('result');
+            result.className = '';
+            
+            if (error) {
+                result.className = 'error';
+                result.innerHTML = error;
+            } else if (total > balance) {
+                result.className = 'error';
+                result.innerHTML = `Недостаточно средств! Итог: ₽${total}, Баланс: ₽${balance}`;
+            } else {
+                result.className = 'success';
+                result.innerHTML = `Заказ оформлен! Итог: ₽${total}, Остаток: ₽${balance - total}`;
+            }
+        }
+    </script>
+</head>
+<body>
+   
+    <div class="balance">
+        <label>Мой баланс: 
+            <input type="number" id="balance" value="10000">
+        </label>
+    </div>
+
+    <div id="basket">
+        <div class="product">
+            <span style="flex-grow: 1">Ноутбук (₽65000)</span>
+            <input type="number" data-price="65000" placeholder="Количество">
+        </div>
+        <!-- Добавьте остальные товары по аналогии -->
+        <div class="product">
+            <span style="flex-grow: 1">Смартфон (₽25000)</span>
+            <input type="number" data-price="25000" placeholder="Количество">
+        </div>
+        <div class="product">
+            <span style="flex-grow: 1">Наушники (₽5000)</span>
+            <input type="number" data-price="5000" placeholder="Количество">
+        </div>
+        <div class="product">
+            <span style="flex-grow: 1">Часы (₽15000)</span>
+            <input type="number" data-price="15000" placeholder="Количество">
+        </div>
+        <div class="product">
+            <span style="flex-grow: 1">Планшет (₽35000)</span>
+            <input type="number" data-price="35000" placeholder="Количество">
+        </div>
+        <div class="product">
+            <span style="flex-grow: 1">Монитор (₽20000)</span>
+            <input type="number" data-price="20000" placeholder="Количество">
+        </div>
+        <div class="product">
+            <span style="flex-grow: 1">Клавиатура (₽3000)</span>
+            <input type="number" data-price="3000" placeholder="Количество">
+        </div>
+    </div>
+
+    <button onclick="calculate()">OK</button>
+    <div id="result"></div>
+    
+</body>
+</html>
