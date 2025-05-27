@@ -43,6 +43,9 @@
                 if (userNumber < 1){
                     message.innerHTML = 'число должно быть в диапазоне от 1 до 100!';
                 }
+                else if (userNumber = ''){
+                    message.innerHTML = 'должно быть число !';
+                }
                 else if (userNumber < number){
                     message.innerHTML = 'Вы ввели слишком маленькое число';
                 }
