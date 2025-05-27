@@ -18,16 +18,39 @@
                 padding: 10px;
                 text-align: center;
             }
+            .instraction{
+                margin: 10px auto;
+                border: 2px solid rgb(112, 162, 212);
+                color: rgb(11, 87, 17);
+                text-align:left;
+                border-radius: 30px;
+                border-width: 4px;
+                padding: 10px;
+               
+            }
         </style>
 
         <script>
             let number;
             let count = 0;
+            function startInstraction(){
+                let screensss = document.getElementsByClassName('instraction');
+                screensss[0].style.display = 'none';
+                screensss[1].style.display = 'block';
+            }
+            function endInstraction(){
+                let screensss = document.getElementsByClassName('instraction');
+                screensss[1].style.display = 'none';
+                screensss[0].style.display = 'block';
+            }
             function startGame(){
                 number =Math.floor( Math.random() * 100 ) + 1;
                 let screens = document.getElementsByClassName('game');
                 screens[0].style.display = 'none';
                 screens[1].style.display = 'block'; 
+                let screensss = document.getElementsByClassName('instraction');
+                screensss[1].style.display = 'none';
+                screensss[0].style.display = 'none';
             }
             function guess(){
                 count++;
@@ -37,15 +60,19 @@
                 if (userNumber > number){
                     message.innerHTML = 'Вы ввели слишком большое число';
                 }
-                if (userNumber > 100){
-                    message.innerHTML = 'число должно быть в диапазоне от 1 до 100!';
+                if (userNumber < 1 || userNumber > 100) {
+                message.innerHTML = 'Число должно быть от 1 до 100!';
+                return;
                 }
-                if (userNumber < 1){
-                    message.innerHTML = 'число должно быть в диапазоне от 1 до 100!';
+                 if (input.value.trim() === '') {
+                message.innerHTML = 'Введите число!';
+                return;
                 }
-                else if (userNumber = ''){
-                    message.innerHTML = 'должно быть число !';
+                if (isNaN(userNumber)) {
+                    message.innerHTML = 'Это не число!';
+                    return;
                 }
+
                 else if (userNumber < number){
                     message.innerHTML = 'Вы ввели слишком маленькое число';
                 }
@@ -79,6 +106,22 @@
                     <button>
                         Сыграть в игру
                     </button>
+                </div>
+                <div class="instraction" onclick="startInstraction()">
+                    <button >
+                        Показать правила игры
+                    </button>
+                </div>
+                <div class="instraction" onclick="endInstraction()" style="display: none";>
+                    <button >
+                        Скрыть правила игры
+                    </button><br>
+                    1. Сначала нажмите кнопку "сыграть в игру"<br>
+                    2. Далее выберите число и нажмите кнопку "Угадать"<br>
+                    3.1 Если вы угадываете число, то игра заканчивается<br>
+                    3.2 Если вы не угадываете число, то вам дается подсказка, маленькое или большое число вы ввели по сравнению с загаданным<br>
+                    4. Затем вы можете увидеть количество попыток и загаданное число, а также сыграть еще раз, нажав на соответствующую кнопку<br>
+                    5. Удачи!<br>
                 </div>
 
                 <div class="game" style="display: none;">
