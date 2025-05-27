@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> MVP</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="c:\Users\User\Desktop\web-front\favicon.ico" type="image/x-icon">
+        <link rel="icon" href="c:\Users\User\Desktop\web-front\favicon-16x16.png">
+        <link rel="icon" href="C:\Users\User\Desktop\web-front\favicon-32x32.png">
+        <link rel="stylesheet" href="../arithmetic.html">
+
+        <script>
+            function filter(){
+            let color = document.getElementById('wear-color').value;
+            let type = document.getElementById('wear-type').value;
+            let wear = document.getElementById('wear');
+
+            if(color == 'Красный' && type == 'Футболка'){
+                wear.src = 'https://icon2.cleanpng.com/lnd/20241230/ku/70e4f2a30d5f8ef9c7f5dfda357cac.webp';
+            }
+            if(color == 'Белый' && type == 'Футболка'){
+                wear.src = 'https://img.freepik.com/premium-photo/two-white-t-shirt-mockup-isolated-on-gray-background-ai-generative_136875-5857.jpg?size=626&ext=jpg';
+            }
+            if(color == 'Чёрный' && type == 'Футболка'){
+                wear.src = 'https://cdn1.ozone.ru/s3/multimedia-h/6817561073.jpg';
+            }
+            if(color == 'Красный' && type == 'Поло'){
+                wear.src = 'https://www.yoox.com/images/items/10/10003984PE_14_f.jpg';
+            }
+            if(color == 'Белый' && type == 'Поло'){
+                wear.src = 'https://i.pinimg.com/736x/b9/69/a1/b969a1b2202db9eea481b7f129e9af6a.jpg';
+            }
+            if(color == 'Чёрный' && type == 'Поло'){
+                wear.src = 'https://cdna.lystit.com/photos/2013/12/11/lacoste-black-2-ply-regular-pique-mens-best-polo-product-1-16056518-188185588.jpeg';
+            }
+            if(color == 'Красный' && type == 'Майка'){
+                wear.src = 'https://martvrn.ru/upload/iblock/f74/f74b39ceb610fbf7aa64cfd8ec27ce23.jpg';
+            }
+            if(color == 'Белый' && type == 'Майка'){
+                wear.src = 'https://www.blacksocks.com/cdn/shop/files/BLACKSOCKS_T-Shirt-Colette.jpg?v=1698500010';
+            }
+            if(color == 'Чёрный' && type == 'Майка'){
+                wear.src = 'https://avatars.mds.yandex.net/get-mpic/3698270/img_id4681345286412640643.jpeg/orig';
+            }
+        }
+        </script>
+    </head>
+
+    <body>
+            <header >
+            </header>
+
+            <main>
+                <div>
+                    Цвет одежды:
+                    <select id="wear-color">
+                        <option>Красный</option>
+                        <option>Белый</option>
+                        <option>Чёрный</option>
+                    </select><br>
+                    тип одежды:
+                    <select id="wear-type">
+                        <option>Футболка</option>
+                        <option>Поло</option>
+                        <option>Майка</option>
+                    </select><br>
+
+                    <button onclick="filter()">ОК</button><br>
+                    <img id="wear">
+                </div>
+            </main>
+
+            <footer>
+                &copy; Dark knight
+            </footer>
+    </body>
+</html>
