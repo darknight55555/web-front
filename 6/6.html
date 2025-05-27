@@ -57,20 +57,19 @@
                 let input = document.getElementById('user-number');
                 let userNumber = parseInt(input.value);
                 let message = document.getElementById('result');
-                if (userNumber > number){
-                    message.innerHTML = 'Вы ввели слишком большое число';
-                }
+     
+                 if (input.value.trim() === '') {
+                message.innerHTML = 'Введите число!';
+                return;
+                 }
                 if (userNumber < 1 || userNumber > 100) {
                 message.innerHTML = 'Число должно быть от 1 до 100!';
                 return;
                 }
-                 if (input.value.trim() === '') {
-                message.innerHTML = 'Введите число!';
-                return;
-                }
-                if (isNaN(userNumber)) {
-                    message.innerHTML = 'Это не число!';
-                    return;
+                
+                
+                if (userNumber > number){
+                    message.innerHTML = 'Вы ввели слишком большое число';
                 }
 
                 else if (userNumber < number){
@@ -92,6 +91,9 @@
                 count = 0;
                 document.getElementById('result').innerHTML = '';
                 document.getElementById('user-number').value = '';
+                let screensss = document.getElementsByClassName('instraction');
+                screensss[1].style.display = 'none';
+                screensss[0].style.display = 'block';
             }
         </script>
 
@@ -126,7 +128,7 @@
 
                 <div class="game" style="display: none;">
                     Задуманно число от 1 до 100. Угадай, какое?<br>
-                    <input type="number" value="" min="1" max="100" id="user-number"><br>
+                    <input type="number" value="" min="1" max="100" id="user-number" required><br>
                     <button onclick="guess()">Угадать</button>
                     <div id="result"></div>
                 </div>
