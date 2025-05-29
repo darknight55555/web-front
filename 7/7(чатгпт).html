@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .controls {
+            margin-bottom: 20px;
+        }
+
+        input[type="number"] {
+            padding: 5px;
+            width: 60px;
+        }
+
+        .button {
+            border: none;
+            padding: 8px 15px;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #555;
+        }
+
+        .block {
+            color: white;
+            height: 40px;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            transition: transform 0.2s ease;
+        }
+
+        .block:hover {
+            transform: scale(1.02);
+        }
+    </style>
+
+    <script>
+        function addBlocksFromInput() {
+            const count = parseInt(document.getElementById("blockCount").value);
+            const main = document.querySelector("main");
+
+            // Удаляем старые блоки
+            document.querySelectorAll('.block').forEach(el => el.remove());
+
+            const baseWidth = 150;
+            const step = 25;
+
+            for (let i = 0; i < count; i++) {
+                const block = document.createElement("div");
+                block.className = "block";
+
+                // Цвет: меняем цвет по шкале HSL
+                const hue = (i * 40) % 360; // разноцветные оттенки
+                block.style.backgroundColor = `hsl(${hue}, 70%, 50%)`;
+
+                // Ширина блока
+                const width = baseWidth + step * i;
+                block.style.width = width + "px";
+
+                block.innerHTML = `Блок №${i + 1} — ширина: ${width}px`;
+                main.appendChild(block);
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <main>
+        <div class="controls">
+            <label for="blockCount">Количество блоков:</label>
+            <input type="number" id="blockCount" value="5" min="1" max="100">
+            <button class="button" onclick="addBlocksFromInput()">Создать блоки</button>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Dark knight
+    </footer>
+
+</body>
+</html>
