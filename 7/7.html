@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> MVP</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="c:\Users\User\Desktop\web-front\favicon.ico" type="image/x-icon">
+        <link rel="icon" href="c:\Users\User\Desktop\web-front\favicon-16x16.png">
+        <link rel="icon" href="C:\Users\User\Desktop\web-front\favicon-32x32.png">
+        <link rel="stylesheet" href="../arithmetic.html">
+        <a><link rel="stylesheet" href="../blocks.html">Добавление блоков</a>
+        <script>
+            function addNewBlock(){
+                let newBlock = document.createElement('div');
+                newBlock.style.backgroundColor = 'green';
+                newBlock.style.height = '20px';
+                newBlock.style.border = '3px solid'
+                newBlock.style.borderBlockColor = 'white'
+                newBlock.style.width = '230px'
+                newBlock.style.padding = '20px 15px 10px '
+                newBlock.style.margin = '10px '
+                document.querySelector('main').appendChild(newBlock);
+            }
+        </script>
+        <style>
+            .button{
+                border: 3px solid;
+            }
+        </style>
+    </head>
+
+    <body>
+            <header >
+            </header>
+
+            <main>
+                <button  onclick="addNewBlock()">Добавить блок</button>
+            </main>
+
+            <footer>
+                &copy; Dark knight
+            </footer>
+    </body>
+</html>
