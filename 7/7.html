@@ -23,9 +23,7 @@
                 document.querySelector('main').appendChild(newBlock);
             }
             function addNewBlocks(){
-                const countInput = document.getElementById('block-count');
-                const count = parseInt(countInput.value) || 1;
-                document.querySelectorAll('.block').forEach(block => block.remove());
+                
                 const baseWidth = 150;  
                 const step = 20;   
                 let main = document.querySelector('main');
@@ -44,7 +42,33 @@
                     newBlock.innerHTML = `Блок № ${i+1}: 2*${i}<sup>2</sup> = ${2* i**2}`;
                     main.appendChild(newBlock);
                 } 
-             }
+            }
+            function add20_50 (){
+                let main = document.querySelector('main');
+                for (let i = 20; i<=50; i+=2.5 ) {
+                    let newBlock = document.createElement('div');
+                    newBlock.style.width = '40px';
+                    newBlock.style.border = '1px solid';
+
+                    newBlock.innerHTML = `${i}`;
+
+                    main.appendChild(newBlock);
+                }
+            }
+            function add10__80 (){
+                let main = document.querySelector('main');
+                for (let i = 10; i>=-80; i+=3 ) {
+                    let newBlock = document.createElement('div');
+                    newBlock.style.width = '40px';
+                    newBlock.style.border = '1px solid';
+                    newBlock.style.borderRadius = '19px ';
+
+                    newBlock.innerHTML = `${i}`;
+
+                    main.appendChild(newBlock);
+                }
+            }
+             
         </script>
         <style>
             .button{
@@ -63,6 +87,8 @@
                 </label>
                 <button  onclick="addNewBlock()">Добавить блок</button>
                 <button  onclick="addNewBlocks()">Добавить блоки</button>
+                <button onclick="add20_50()">20 => 50</button>
+                <button onclick="add10__80()">10 => -80</button>
             </main>
 
             <footer>
