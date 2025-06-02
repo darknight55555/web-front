@@ -22,27 +22,7 @@
                 newBlock.style.margin = '10px ';
                 document.querySelector('main').appendChild(newBlock);
             }
-            function addNewBlocks(){
-                
-                const baseWidth = 150;  
-                const step = 20;   
-                let main = document.querySelector('main');
-                for(let i=0; i<10; i++){
-                    let newBlock = document.createElement('div');
-                    newBlock.style.backgroundColor = 'green';
-                    newBlock.style.height = '20px';
-                    newBlock.style.height = '20px';
-                    newBlock.style.border = '3px solid';
-                    newBlock.style.color = 'white';
-                    newBlock.style.borderBlockColor = 'white';
-                    newBlock.style.width = `${baseWidth + step * i}px`;
-                    
-                    newBlock.style.padding = '20px 15px 10px ';
-                    newBlock.style.margin = '10px ';
-                    newBlock.innerHTML = `Блок № ${i+1}: 2*${i}<sup>2</sup> = ${2* i**2}`;
-                    main.appendChild(newBlock);
-                } 
-            }
+    
             function add20_50 (){
                 let main = document.querySelector('main');
                 for (let i = 20; i<=50; i+=2.5 ) {
@@ -57,18 +37,82 @@
             }
             function add10__80 (){
                 let main = document.querySelector('main');
-                for (let i = 10; i>=-80; i+=3 ) {
+                for (let i = 10; i>=-80; i-=3 ) {
                     let newBlock = document.createElement('div');
-                    newBlock.style.width = '40px';
+                    newBlock.style.width = '24px';
                     newBlock.style.border = '1px solid';
-                    newBlock.style.borderRadius = '19px ';
-
+                    newBlock.style.borderRadius = '24px  ';
+                    newBlock.style.textAlign = 'center';
+                    newBlock.style.display = 'inline-block';
                     newBlock.innerHTML = `${i}`;
 
                     main.appendChild(newBlock);
                 }
             }
-             
+                function addBlocksFromInput() {
+                const count = parseInt(document.getElementById("blockCount").value);
+                const main = document.querySelector("main");
+
+                const baseWidth = 200;
+                const step = 25;
+
+                for (let i = 0; i < count; i++) {
+                let newBlock = document.createElement('div');
+
+                // Цвет: меняем цвет по шкале HSL
+                
+                    newBlock.style.backgroundColor = `green`;
+                    newBlock.style.backgroundColor = 'green';
+                    newBlock.style.height = '30px';
+                    newBlock.style.border = '3px solid';
+                    newBlock.style.borderRadius =' 20px ';
+                    newBlock.style.textAlign = 'center';
+                    newBlock.style.margin = '10px 8px';
+                    newBlock.style.color = 'white';
+                    newBlock.style.borderBlockColor = 'white';
+                    newBlock.style.width = `${baseWidth + step * i}px`;
+                    // Ширина блока
+                    const width = baseWidth + step * i;
+                    newBlock.style.width = width + "px";
+
+                    newBlock.innerHTML = `Блок №${i + 1} — ширина: ${width}px`;
+                    main.appendChild(newBlock);
+                    }
+                }
+                function opacityChange(){
+                    
+                    const main = document.querySelector("main");
+
+                    const baseOpacity = 0 ;
+                    const step = 10;
+
+                    for (let i = 0; i < 10; i++) {
+                    let newBlock = document.createElement('div');
+
+                
+                
+                        newBlock.style.backgroundColor = `green`;
+                        newBlock.style.backgroundColor = 'green';
+                        newBlock.style.height = '30px';
+                        newBlock.style.border = '3px solid';
+                        newBlock.style.borderRadius =' 20px ';
+                        newBlock.style.textAlign = 'center';
+                        newBlock.style.margin = '10px 8px';
+                        newBlock.style.color = 'white';
+                        newBlock.style.borderBlockColor = 'white';
+                        newBlock.style.width = `400px`;
+                        
+
+                        // Ширина блока
+                        const opacity = baseOpacity + step*i ;
+                        newBlock.style.opacity = opacity + "%";
+
+                        newBlock.innerHTML = `${i + 1}`;
+                        main.appendChild(newBlock);
+                        }
+                }
+
+        
         </script>
         <style>
             .button{
@@ -82,13 +126,14 @@
             </header>
 
             <main>
-                <label>Количество блоков:
-                    <input type="number" id="block-сount" value="10" min="1" max="100">
-                </label>
+                <label for="blockCount">Количество блоков:</label>
+                <input type="number" id="blockCount" value="5" min="1" max="100">
+                <button class="button" onclick="addBlocksFromInput()">Создать блоки</button>
                 <button  onclick="addNewBlock()">Добавить блок</button>
-                <button  onclick="addNewBlocks()">Добавить блоки</button>
                 <button onclick="add20_50()">20 => 50</button>
                 <button onclick="add10__80()">10 => -80</button>
+                <button onclick="opacityChange()">0% to 100%</button>
+
             </main>
 
             <footer>
