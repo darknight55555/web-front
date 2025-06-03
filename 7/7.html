@@ -49,6 +49,48 @@
                     main.appendChild(newBlock);
                 }
             }
+            function addBlocksCircle(){
+               
+
+
+
+
+                const count = parseInt(document.getElementById("blockCircle").value);
+                const main = document.querySelector("main");
+
+                  for (let i = count; i >= 1; i--) {
+                // Создаем новый круг
+                let circle = document.createElement("div");
+                circle.className = "circle";
+                
+                circle.style.display = 'inline-block';
+                circle.style.width = '50px';
+                circle.style.height = '50px';
+                circle.style.borderRadius = '50%'; /* Делаем элемент круглым */
+                circle.style.textAlign = 'center';
+                circle.style.verticalAlign = 'middle';
+                circle.style.lineHeight = '45px'; 
+                
+                circle.style.margin = '10px';
+                circle.style.color = 'white'; /* Цвет текста */
+                circle.style.fontWeight = 'bold'; /* Жирный текст */
+                // Определяем, четный или нечетный круг
+                if (i % 2 === 1) {
+                    // Нечетный номер - красный
+                    circle.classList.add("odd");
+                } else {
+                    // Четный номер - зеленый
+                    circle.classList.add("even");
+                }
+                
+                // Добавляем номер в круг
+                circle.textContent = i;
+                
+                // Добавляем круг в контейнер
+                main.appendChild(circle);
+            }
+            }
+        
                 function addBlocksFromInput() {
                 const count = parseInt(document.getElementById("blockCount").value);
                 const main = document.querySelector("main");
@@ -58,7 +100,7 @@
 
                 for (let i = 0; i < count; i++) {
                 let newBlock = document.createElement('div');
-
+                
                 // Цвет: меняем цвет по шкале HSL
                 
                     newBlock.style.backgroundColor = `green`;
@@ -118,6 +160,14 @@
             .button{
                 border: 3px solid;
             }
+            .circle.odd {
+            background-color: red;
+            }
+        
+            /* Стиль для четных кругов (зеленые) */
+            .circle.even {
+                background-color: green;
+            }
         </style>
     </head>
 
@@ -133,6 +183,9 @@
                 <button onclick="add20_50()">20 => 50</button>
                 <button onclick="add10__80()">10 => -80</button>
                 <button onclick="opacityChange()">0% to 100%</button>
+                <label for="blockCircle">Количество кругов:</label>
+                <input type="number" id="blockCircle" value="5" min="1" max="555">
+                <button class="button" onclick="addBlocksCircle()">Создать круги</button>
 
             </main>
 

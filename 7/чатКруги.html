@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Цветные круги</title>
+    <style>
+        /* Стиль для контейнера кругов */
+        .circles-container {
+            display: flex; /* Размещаем круги в строку */
+            flex-wrap: wrap; /* Если кругов много, переносим на новую строку */
+            margin-top: 20px;
+        }
+        
+        /* Стиль для каждого круга */
+        .circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%; /* Делаем элемент круглым */
+            display: flex;
+            align-items: center; /* Выравниваем текст по вертикали */
+            justify-content: center; /* Выравниваем текст по горизонтали */
+            margin: 10px;
+            color: white; /* Цвет текста */
+            font-weight: bold; /* Жирный текст */
+        }
+        
+        /* Стиль для нечетных кругов (красные) */
+        .circle.odd {
+            background-color: red;
+        }
+        
+        /* Стиль для четных кругов (зеленые) */
+        .circle.even {
+            background-color: green;
+        }
+        
+        /* Стиль для поля ввода и кнопки */
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Генератор цветных кругов</h1>
+    
+    <!-- Поле для ввода количества кругов -->
+    <div>
+        <label>Количество кругов: 
+            <input type="number" id="circleCount" min="1" max="50" value="5">
+        </label>
+        <button onclick="createCircles()">Цветные круги</button>
+    </div>
+    
+    <!-- Контейнер, куда будут добавляться круги -->
+    <div id="circlesContainer" class="circles-container"></div>
+    
+    <script>
+        // Функция для создания кругов
+        function createCircles() {
+            // 1. Получаем количество кругов из поля ввода
+            let countInput = document.getElementById("circleCount");
+            let circleCount = parseInt(countInput.value);
+            
+            // 2. Проверяем, что введено число
+            if (isNaN(circleCount) || circleCount < 1) {
+                alert("Пожалуйста, введите число больше 0!");
+                return;
+            }
+            
+            // 3. Очищаем предыдущие круги
+            let container = document.getElementById("circlesContainer");
+            container.innerHTML = "";
+            
+            // 4. Создаем круги в обратном порядке
+            for (let i = circleCount; i >= 1; i--) {
+                // Создаем новый круг
+                let circle = document.createElement("div");
+                circle.className = "circle";
+                
+                // Определяем, четный или нечетный круг
+                if (i % 2 === 1) {
+                    // Нечетный номер - красный
+                    circle.classList.add("odd");
+                } else {
+                    // Четный номер - зеленый
+                    circle.classList.add("even");
+                }
+                
+                // Добавляем номер в круг
+                circle.textContent = i;
+                
+                // Добавляем круг в контейнер
+                container.appendChild(circle);
+            }
+        }
+    </script>
+</body>
+</html>
