@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> MVP</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="c:\Users\User\Desktop\web-front\favicon.ico" type="image/x-icon">
+        <link rel="icon" href="c:\Users\User\Desktop\web-front\favicon-16x16.png">
+        <link rel="icon" href="C:\Users\User\Desktop\web-front\favicon-32x32.png">
+        <link rel="stylesheet" href="../arithmetic.html">
+        <style>
+           .hz{
+           
+                border: 2px solid rgb(27, 226, 153);
+                
+              
+               
+                text-align: center;
+           }
+
+        
+        </style>
+        <script>
+            function showExchange(){
+                let screensss = document.getElementsByClassName('instraction');
+                screensss[0].style.display = 'none';
+                let screensssss = document.getElementsByClassName('hz');
+                screensssss[0].style.display = 'block';
+                
+                
+                const exchange = [
+                    81.4933, 81.9137, 80.9644, 	80.8612, 80.8883, 	80.5500,
+                    80.2237, 80.3134, 80.7689, 	80.4137
+                ];
+                let table = document.getElementById('dollar-table');
+                for(let i = 0; i < exchange.length; i++){
+                    let tr = document.createElement('tr');
+                    let td = document.createElement('td');
+                    td.innerText = exchange[i];
+                    tr.appendChild(td);
+                    table.appendChild(tr);
+                }
+                let d = document.getElementById('detail');
+                let sum = 0;
+                for(let i = 0; i < exchange.length; i++){
+                    sum += exchange[i];
+                }
+                let average = sum / exchange.length;
+                average = average.toFixed(2);
+                d.innerHTML = average;
+
+                
+
+                
+                
+
+            }
+        </script>
+    </head>
+
+    <body>
+            <header >
+            </header>
+
+            <main>
+                <button class="instraction" onclick="showExchange()">Курс доллара</button>
+                <table border="1" id="dollar-table"></table>
+                <div class="hz" id="detail" style="display: none"></div>
+            </main>
+
+            <footer>
+                &copy; Dark knight
+            </footer>
+    </body>
+</html>
