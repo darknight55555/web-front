@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>surgutneftgaz акции</title>
+        <title> surgutneftgaz акции</title>
         <link rel="stylesheet" href="../main.css">
         <link rel="shortcut icon" href="c:\Users\User\Desktop\web-front\favicon.ico" type="image/x-icon">
         <link rel="icon" href="c:\Users\User\Desktop\web-front\favicon-16x16.png">
@@ -11,21 +11,21 @@
         
         <script>
             function showExchange(){
+                
                 const data = [
                     '23.05.2025', '26.05.2025', '27.05.2025', '28.05.2025',
-                    '29.05.2025', '30.05.2025', '02.06.2025', '03.06.2025',
+                   '29.05.2025', '30.05.2025', '02.06.2025', '03.06.2025',
                     '04.06.2025', '05.06.2025'
-                ];
+                ]
                 const price = [
                     21.99, 21.39, 21.60, 21.73, 22.11, 22.03,
                     22.12, 22.79, 22.40, 22.45
                 ];
 
-                let container = document.getElementById('table-container');
+                let container = document.getElementById('table-container')
                 let table = document.createElement('table');
                 table.border = "1";
 
-                // Создаем заголовок таблицы
                 let tr = document.createElement('tr');
                 let thData = document.createElement('th');
                 thData.innerText = 'Дата';
@@ -44,61 +44,60 @@
                 let sum = 0;
                 let maxPrice = price[0];
                 let minPrice = price[0];
-                
-                // Заполняем таблицу данными
-                for(let i = 0; i < data.length; i++){
+                for(let i = 0; i <data.length; i++){
                     let tr = document.createElement('tr');
-                    
-                    // Колонка с датой
                     let tdDate = document.createElement('td');
                     tdDate.innerText = data[i];
                     tr.appendChild(tdDate);
-                    
-                    // Колонка с ценой
                     let tdPrice = document.createElement('td');
-                    tdPrice.innerHTML = price[i]; // Исправлено ptice -> price
+                    tdPrice.innerHTML = price[i];
                     tr.appendChild(tdPrice);
-                    
                     sum += price[i];
                     if (price[i] > maxPrice) maxPrice = price[i];
                     if (price[i] < minPrice) minPrice = price[i];
 
-                    // Колонка с разницей
-                    let tdDifference = document.createElement('td');
                     if(i > 0){
+                        let tdDifference = document.createElement('td');
                         tdDifference.innerText = (price[i] - price[i - 1]).toFixed(2);
+                        tr.appendChild(tdDifference);
                     }
                     else{
+                        let tdDifference = document.createElement('td');
                         tdDifference.innerText = "-";
-                    }
-                    tr.appendChild(tdDifference);
-                    
-                    table.appendChild(tr); // Исправлено: добавляем строку, а не ячейку
+                        tr.appendChild(tdDifference);
+                        }
+                    table.appendChild(tr);
                 }
 
-                let avarege = sum / price.length;
-                avarege = avarege.toFixed(2);
+                let avarage = sum / price.length;
+                avarage = avarage.toFixed(2);
 
                 let detail = document.getElementById('detail');
-                detail.innerText = `Среднее значение стоимости акции: ${avarege}\nМаксимальное значение стоимости акции: ${maxPrice}\nМинимальное значение стоимости акции: ${minPrice}`;
+                detail.innerText = `Среднее значение стоимости акции: ${avarage}\nМаксимальное значение стоимости акции: ${maxPrice}\nМинимальное значение стоимости акции: ${minPrice}`;
 
                 let button = document.querySelector('button');
                 button.style.display = 'none';
 
                 container.appendChild(table);
+                
             }
-        </script>
+            </script>
+        
+
     </head>
 
     <body>
-        <header></header>
-        <main>
-            <button onclick="showExchange()">Курс акций</button>
-            <div id="table-container"></div>
-            <div id="detail"></div>
-        </main>
-        <footer>
-            &copy; Dark knight
-        </footer>
+            <header >
+            </header>
+
+            <main>
+                <button onclick="showExchange()">Курс акций</button>
+                <div  id="table-container"></div>
+                <div id="detail"></div>
+            </main>
+
+            <footer>
+                &copy; Dark knight
+            </footer>
     </body>
 </html>
